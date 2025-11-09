@@ -1,0 +1,68 @@
+{
+  "common": {
+    "appName": "دونگی پونگی",
+    "save": "ذخیره",
+    "cancel": "لغو",
+    "delete": "حذف",
+    "edit": "ویرایش",
+    "add": "افزودن",
+    "close": "بستن",
+    "loading": "در حال بارگذاری...",
+    "error": "خطا",
+    "success": "موفق"
+  },
+  "auth": {
+    "login": "ورود",
+    "register": "ثبت نام",
+    "logout": "خروج",
+    "email": "ایمیل",
+    "username": "نام کاربری",
+    "password": "رمز عبور",
+    "confirmPassword": "تکرار رمز عبور",
+    "loginTitle": "خوش آمدید",
+    "registerTitle": "ایجاد حساب کاربری",
+    "alreadyHaveAccount": "حساب کاربری دارید؟",
+    "dontHaveAccount": "حساب کاربری ندارید؟",
+    "passwordMismatch": "رمز عبور مطابقت ندارد",
+    "loginError": "اطلاعات نامعتبر",
+    "registerError": "ثبت نام ناموفق"
+  },
+  "trip": {
+    "trips": "سفرها",
+    "newTrip": "سفر جدید",
+    "tripName": "نام سفر",
+    "description": "توضیحات",
+    "participants": "شرکت کنندگان",
+    "addParticipant": "افزودن شرکت کننده",
+    "expenses": "هزینه‌ها",
+    "summary": "خلاصه",
+    "totalCost": "هزینه کل",
+    "yourShare": "سهم شما",
+    "youOwe": "بدهی شما",
+    "youAreOwed": "طلب شما",
+    "settled": "تسویه شده"
+  },
+  "expense": {
+    "newExpense": "هزینه جدید",
+    "description": "توضیحات",
+    "amount": "مبلغ",
+    "date": "تاریخ",
+    "paidBy": "پرداخت شده توسط",
+    "splitBetween": "تقسیم بین",
+    "percentage": "درصد",
+    "share": "سهم",
+    "total": "جمع"
+  },
+  "participant": {
+    "addByEmail": "افزودن با ایمیل",
+    "addByUsername": "افزودن با نام کاربری",
+    "addArbitrary": "افزودن کاربر دلخواه",
+    "arbitraryName": "نام"
+  },
+  "theme": {
+    "light": "روشن",
+    "dark": "تیره",
+    "toggle": "تغییر تم"
+  }
+}
+

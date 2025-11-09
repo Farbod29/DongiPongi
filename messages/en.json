@@ -1,0 +1,68 @@
+{
+  "common": {
+    "appName": "DongyPongy",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "close": "Close",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "email": "Email",
+    "username": "Username",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "loginTitle": "Welcome Back",
+    "registerTitle": "Create Account",
+    "alreadyHaveAccount": "Already have an account?",
+    "dontHaveAccount": "Don't have an account?",
+    "passwordMismatch": "Passwords don't match",
+    "loginError": "Invalid credentials",
+    "registerError": "Registration failed"
+  },
+  "trip": {
+    "trips": "Trips",
+    "newTrip": "New Trip",
+    "tripName": "Trip Name",
+    "description": "Description",
+    "participants": "Participants",
+    "addParticipant": "Add Participant",
+    "expenses": "Expenses",
+    "summary": "Summary",
+    "totalCost": "Total Cost",
+    "yourShare": "Your Share",
+    "youOwe": "You Owe",
+    "youAreOwed": "You Are Owed",
+    "settled": "Settled"
+  },
+  "expense": {
+    "newExpense": "New Expense",
+    "description": "Description",
+    "amount": "Amount",
+    "date": "Date",
+    "paidBy": "Paid By",
+    "splitBetween": "Split Between",
+    "percentage": "Percentage",
+    "share": "Share",
+    "total": "Total"
+  },
+  "participant": {
+    "addByEmail": "Add by Email",
+    "addByUsername": "Add by Username",
+    "addArbitrary": "Add Arbitrary User",
+    "arbitraryName": "Name"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "toggle": "Toggle Theme"
+  }
+}
+

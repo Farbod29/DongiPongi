@@ -1,0 +1,78 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  ownedTrips     Trip[]
+  participations TripParticipant[]
+  expenses       Expense[]
+}
+
+model Trip {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  ownerId     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  owner        User              @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  participants TripParticipant[]
+  expenses     Expense[]
+}
+
+model TripParticipant {
+  id           String   @id @default(cuid())
+  tripId       String
+  userId       String?
+  arbitraryName String?
+  createdAt    DateTime @default(now())
+
+  trip     Trip      @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  user     User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  shares   ExpenseShare[]
+
+  @@unique([tripId, userId])
+  @@unique([tripId, arbitraryName])
+}
+
+model Expense {
+  id          String   @id @default(cuid())
+  tripId      String
+  description String
+  amount      Float
+  date        DateTime @default(now())
+  paidById    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  trip   Trip           @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  paidBy User           @relation(fields: [paidById], references: [id])
+  shares ExpenseShare[]
+}
+
+model ExpenseShare {
+  id              String  @id @default(cuid())
+  expenseId       String
+  participantId   String
+  percentage      Float
+  calculatedShare Float
+
+  expense     Expense         @relation(fields: [expenseId], references: [id], onDelete: Cascade)
+  participant TripParticipant @relation(fields: [participantId], references: [id], onDelete: Cascade)
+
+  @@unique([expenseId, participantId])
+}
+
