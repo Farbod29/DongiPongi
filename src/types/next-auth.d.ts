@@ -21,3 +21,8 @@ declare module 'next-auth/jwt' {
   }
 }
 
+declare module 'next-auth/adapters' {
+  interface AdapterUser {
+    username: string;
+  }
+}

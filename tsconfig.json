@@ -22,6 +22,9 @@
         "name": "next"
       }
     ],
+    "customConditions": [
+      "react-server"
+    ],
     "paths": {
       "@/*": [
         "./src/*"
