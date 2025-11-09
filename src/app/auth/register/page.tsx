@@ -16,8 +16,15 @@ export default function RegisterPage() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const t = useTranslations();
-  const { theme, toggleTheme } = useTheme();
+  const { theme, resolvedTheme, toggleTheme } = useTheme();
   const { locale, setLocale } = useLocale();
+
+  const getThemeIcon = () => {
+    if (theme === 'system') {
+      return resolvedTheme === 'dark' ? '☀️' : '🌙';
+    }
+    return theme === 'light' ? '🌙' : '☀️';
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -61,7 +68,7 @@ export default function RegisterPage() {
           className="p-2 rounded-lg bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-shadow"
           aria-label={t('theme.toggle')}
         >
-          {theme === 'light' ? '🌙' : '☀️'}
+          {getThemeIcon()}
         </button>
         <button
           onClick={() => setLocale(locale === 'en' ? 'fa' : 'en')}

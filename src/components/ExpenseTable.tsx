@@ -59,7 +59,11 @@ export default function ExpenseTable({
     return participant.user?.username || participant.arbitraryName || 'Unknown';
   };
 
-  const handlePercentageClick = (expenseId: string, participantId: string, currentPercentage: number) => {
+  const handlePercentageClick = (
+    expenseId: string,
+    participantId: string,
+    currentPercentage: number
+  ) => {
     setEditingCell({ expenseId, participantId });
     setTempPercentage(currentPercentage.toString());
   };
@@ -71,7 +75,7 @@ export default function ExpenseTable({
     if (!expense) return;
 
     const newPercentage = parseFloat(tempPercentage) || 0;
-    
+
     const updatedShares = expense.shares.map((share) => {
       if (share.participantId === editingCell.participantId) {
         return {
@@ -85,8 +89,11 @@ export default function ExpenseTable({
       };
     });
 
-    const totalPercentage = updatedShares.reduce((sum, s) => sum + s.percentage, 0);
-    
+    const totalPercentage = updatedShares.reduce(
+      (sum, s) => sum + s.percentage,
+      0
+    );
+
     if (Math.abs(totalPercentage - 100) > 0.01) {
       alert('Total percentage must equal 100%');
       setEditingCell(null);
@@ -169,17 +176,16 @@ export default function ExpenseTable({
               ))}
             </tr>
             <tr>
-              <th colSpan={4} className="border-b border-gray-200 dark:border-gray-700"></th>
+              <th
+                colSpan={4}
+                className="border-b border-gray-200 dark:border-gray-700"
+              ></th>
               {participants.map((participant) => (
                 <React.Fragment key={participant.id}>
-                  <th
-                    className="px-2 py-2 text-center text-xs font-medium text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700 bg-blue-50 dark:bg-blue-900/10"
-                  >
+                  <th className="px-2 py-2 text-center text-xs font-medium text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700 bg-blue-50 dark:bg-blue-900/10">
                     %
                   </th>
-                  <th
-                    className="px-2 py-2 text-center text-xs font-medium text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800"
-                  >
+                  <th className="px-2 py-2 text-center text-xs font-medium text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800">
                     {t('expense.share')}
                   </th>
                 </React.Fragment>
@@ -213,9 +219,8 @@ export default function ExpenseTable({
                     editingCell?.participantId === participant.id;
 
                   return (
-                    <>
+                    <React.Fragment key={participant.id}>
                       <td
-                        key={`${participant.id}-pct`}
                         className="px-2 py-3 text-center text-sm border-b border-gray-100 dark:border-gray-800 bg-blue-50 dark:bg-blue-900/10 cursor-pointer hover:bg-blue-100 dark:hover:bg-blue-900/20"
                         onClick={() =>
                           handlePercentageClick(
@@ -247,13 +252,10 @@ export default function ExpenseTable({
                           </span>
                         )}
                       </td>
-                      <td
-                        key={`${participant.id}-share`}
-                        className="px-2 py-3 text-center text-sm text-gray-700 dark:text-gray-300 border-b border-gray-100 dark:border-gray-800 bg-gray-100 dark:bg-gray-800"
-                      >
+                      <td className="px-2 py-3 text-center text-sm text-gray-700 dark:text-gray-300 border-b border-gray-100 dark:border-gray-800 bg-gray-100 dark:bg-gray-800">
                         EUR {(share?.calculatedShare || 0).toFixed(2)}
                       </td>
-                    </>
+                    </React.Fragment>
                   );
                 })}
               </tr>
@@ -319,4 +321,3 @@ export default function ExpenseTable({
     </div>
   );
 }
-
